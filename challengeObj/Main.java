@@ -1,5 +1,6 @@
 public class Main {
 
+  static Store store = new Store();
   public static void main(String[] args) {
 
     Movie[] movies = new Movie[]{
@@ -14,8 +15,15 @@ public class Main {
     };
 
     for(int i = 0; i < movies.length ; i++ ){
-      System.out.println(movies[i].toString());
+      store.setMovies(i, movies[i]);
     }
 
+    printStore();
   }
+
+  public static void printStore(){
+    System.out.println("********************************MOVIE STORE*******************************");
+    System.out.println(store);
+  }
+
 }
