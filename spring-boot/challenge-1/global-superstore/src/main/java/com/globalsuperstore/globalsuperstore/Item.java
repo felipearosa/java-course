@@ -1,6 +1,7 @@
 package com.globalsuperstore.globalsuperstore;
 
 import java.util.Date;
+import java.util.UUID;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -9,11 +10,21 @@ public class Item {
   private String name;
   private Double price;
   private Double discount;
+  private String id;
 
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date date;
 
   public Item(){
+    this.id = UUID.randomUUID().toString();
+  }
+
+  public String getId() {
+    return this.id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 
   public String getCategory(){
