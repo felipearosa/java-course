@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
@@ -13,9 +15,15 @@ import com.store.globalsuperstore.repository.StoreRepository;
 
 import jakarta.validation.Valid;
 
+@Service
 public class StoreService {
 
-  StoreRepository storeRepo = new StoreRepository();
+  StoreRepository storeRepo;
+
+  @Autowired
+  public StoreService (StoreRepository storeRepo){
+    this.storeRepo = storeRepo;
+  }
 
   public List<Item> getItems(){
     return storeRepo.getItems();

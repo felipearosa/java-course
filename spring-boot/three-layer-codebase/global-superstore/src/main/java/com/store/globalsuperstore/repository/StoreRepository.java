@@ -3,8 +3,11 @@ package com.store.globalsuperstore.repository;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
 import com.store.globalsuperstore.Item;
 
+@Repository
 public class StoreRepository {
   List<Item> items = new ArrayList<>();
 
